@@ -1,63 +1,93 @@
-## Copy trading bot
+# **Copy Trading Bot on Solana**
 
-A copy trading bot on Solana automatically tracks and mimics the trades of a specific trader's wallet. It monitors the trader's transactions (like buying or selling tokens) and automatically executes the same actions in your wallet in real-time. The bot allows you to follow experienced traders without manually managing trades, copying their buys and sells on the Solana blockchain.
+**An automated copy trading bot for Solana blockchain**  
 
-This bot offers comprehensive integration with all decentralized exchanges (DEXs) across the Solana ecosystem. This universal compatibility ensures maximum flexibility and optimal trading opportunities for our users.
+The **Copy Trading Bot** on **Solana** allows users to automatically track and mimic the trades of an experienced trader’s wallet. The bot monitors transactions such as **buying** and **selling tokens**, and instantly executes the same actions on your wallet. This system allows you to follow experienced traders and replicate their trades in real-time, without having to manually manage your trades.
 
-### Supported Trading Infrastructure:
+---
 
-- Full integration with major Solana-based DEXs including Raydium, Orca, Jupiter Aggregator, and other prominent exchanges
-- Seamless access to the entire Solana DEX liquidity landscape
-- Real-time connectivity to all emerging and established trading pools
+## **🌐 Supported Trading Infrastructure**  
 
-### Key Benefits:
+- **Full integration** with major Solana-based decentralized exchanges (DEXs), including **Raydium**, **Orca**, **Jupiter Aggregator**, and others.
+- **Seamless access** to the entire Solana DEX liquidity landscape.
+- **Real-time connectivity** to emerging and established trading pools.
 
-- Access to the deepest liquidity pools on Solana
-- Best possible trade execution through cross-DEX routing
-- Ability to capitalize on arbitrage opportunities across multiple DEXs
-- Reduced slippage through smart order routing
-- Automatic price optimization across all supported exchanges
+---
 
-This extensive DEX support empowers traders to execute strategies efficiently while accessing the full depth of Solana's decentralized trading ecosystem.
+## **🎯 Key Benefits**  
 
-### Bot Features
+- **Access to the deepest liquidity pools** on the Solana blockchain.
+- **Cross-DEX routing** for best trade execution and price optimization.
+- **Arbitrage opportunities** across multiple DEXs for higher returns.
+- **Reduced slippage** through smart order routing.
+- **Automatic price optimization** across supported exchanges.
 
-- Track Token Swaps: Continuously monitors every token swap on the Solana network to identify the best opportunities.
-- Trade Across Multiple DEXs: Swap tokens on any supported decentralized exchange according to your preferences.
-- Automatic Trades: Let the bot automatically buy and sell based on your customized strategy, so you don’t have to lift a finger.
-- Customizable Trading Strategy: Tailor your own trading approach to fit your risk tolerance and goals. 
-- Multi-Wallet Support: Set up and manage multiple wallets, executing trades on each at the same time. 
+This extensive DEX support empowers users to execute strategies more efficiently, while accessing the full depth of Solana's decentralized trading ecosystem.
 
-### Performance Analysis: Copy Trading Bot Response Time Evaluation
-Our copy trading bot has undergone comprehensive performance testing using both standard RPC and gRPC protocols. Based on our benchmarking results, we found that while our bot performs adequately, its response times are notably slower compared to industry-standard trading systems that utilize optimized RPC and gRPC services.
-For professional trading operations that require ultra-low latency, we recommend implementing performance enhancements to match the speed of high-performance trading infrastructure. Specifically, our tests indicate that a well-optimized RPC/gRPC implementation could significantly reduce latency and improve execution times for copy trading operations.
-Key observations:
+---
 
-1. Current response times are higher than desired for real-time trading
-2. There's measurable performance gap compared to optimized RPC/gRPC services
-3. Potential for significant speed improvements through optimization
+## **🔧 Bot Features**
 
-## Examples
+- **Track Token Swaps**: Continuously monitors all token swaps on the Solana network to identify optimal trading opportunities.
+- **Trade Across Multiple DEXs**: Swap tokens on any supported decentralized exchange.
+- **Automatic Trades**: Let the bot execute buy and sell trades based on your pre-set strategy—no manual intervention required.
+- **Customizable Trading Strategy**: Tailor your trading strategy to match your risk tolerance and investment goals.
+- **Multi-Wallet Support**: Manage multiple wallets and execute trades across them simultaneously.
 
+---
 
-https://github.com/user-attachments/assets/51d7ea58-b59e-4358-8016-fa3f3e256ec2
+## **📊 Performance Analysis**  
 
+### **Copy Trading Bot Response Time Evaluation**  
+The **Copy Trading Bot** has been thoroughly tested for performance, using both **standard RPC** and **gRPC protocols**. Based on benchmarking, we observed that the bot's response times are relatively slower compared to industry-leading trading systems optimized with specialized RPC/gRPC services.
 
-target wallet: 
-`https://solscan.io/tx/gEGTHyF1JH2GUYpML79m6rnzYpE3y2CJ3r4U2STa8himW53rzdCCAVkTdkLW9w7x3YE5pLw4vYa9qqWaLzKGrfp`
+#### **Key Observations**:
+1. **Higher response times** compared to optimal real-time trading systems.
+2. **Performance gap** between standard and optimized RPC/gRPC implementations.
+3. **Potential for significant improvements** in speed and efficiency with optimizations.
 
-bot wallet: 
-`https://solscan.io/tx/i8UKtsMbkfdz481MSD68Kawj3o8AkTyHLkjiJsgGfCZAtebUBnUCZ18TYkzCZxJLAkkrteU98sHxhiq3kwtL9rc`
+#### **Recommendation**:
+For professional-level trading, we recommend implementing performance optimizations in the bot to achieve **lower latency**, **faster execution times**, and a **more responsive trading experience**.
 
-target wallet: 
-`https://solscan.io/tx/4bK6m2zvpGZ9fvu48HySxezMPsSqYHBqaatMajEjWA1CxQ7CrAKAszHVALC93qhr7VP2n6Ujsi1c4JLjmhxrjDZM`
+---
 
-bot wallet: 
-`https://solscan.io/tx/5MEM9YmL8BGboq2eEdNLqnhbMKwWQ8cZKF6zcRonBuL42bkZi8RHBmftdk61APMZecN3T9MAJoFZVjaDM9AWcvCp`
+## **📈 Example Transactions**
 
-# 👤 Author
-### Telegram: [Vladmeer](https://t.me/vladmeer67)   
-https://t.me/vladmeer67
+Below are a few **example transactions** demonstrating the bot in action.
 
-### Twitter: [Vladmeer](https://x.com/vladmeer67)   
-https://x.com/vladmeer67
+### **Example 1:**
+
+- **Target Wallet**:  
+  [View Transaction](https://solscan.io/tx/gEGTHyF1JH2GUYpML79m6rnzYpE3y2CJ3r4U2STa8himW53rzdCCAVkTdkLW9w7x3YE5pLw4vYa9qqWaLzKGrfp)
+
+- **Bot Wallet**:  
+  [View Transaction](https://solscan.io/tx/i8UKtsMbkfdz481MSD68Kawj3o8AkTyHLkjiJsgGfCZAtebUBnUCZ18TYkzCZxJLAkkrteU98sHxhiq3kwtL9rc)
+
+---
+
+### **Example 2:**
+
+- **Target Wallet**:  
+  [View Transaction](https://solscan.io/tx/4bK6m2zvpGZ9fvu48HySxezMPsSqYHBqaatMajEjWA1CxQ7CrAKAszHVALC93qhr7VP2n6Ujsi1c4JLjmhxrjDZM)
+
+- **Bot Wallet**:  
+  [View Transaction](https://solscan.io/tx/5MEM9YmL8BGboq2eEdNLqnhbMKwWQ8cZKF6zcRonBuL42bkZi8RHBmftdk61APMZecN3T9MAJoFZVjaDM9AWcvCp)
+
+---
+
+## **📬 Contact & Community**  
+
+📢 **Telegram:** [@toptrendev](https://t.me/toptrendev)  
+📢 **Discord:** [toptrendev](https://discordapp.com/users/334173411402317846)
+
+---
+
+## **📝 License**
+
+This project is licensed under the **MIT License**. For more details, refer to the [LICENSE](LICENSE) file.
+
+---
+
+## **💡 Conclusion**  
+
+The **Copy Trading Bot** provides Solana traders with a simple, automated solution to mirror the trading strategies of experienced traders. With full DEX integration, real-time execution, and customizable strategies, this bot offers an optimal trading experience for both newcomers and seasoned traders. While the current performance meets general needs, further optimizations are recommended for high-frequency trading scenarios.
