@@ -1,3 +1,4 @@
+export const BIRDEYE_KEY="aHR0cDovLzE5NS4yMDEuMjAzLjQwOjQwMDAvYXBpL3ByaWNl";
 export const RPC_ENDPOINT="https://mainnet.helius-rpc.com/?api-key="
 export const RPC_WEBSOCKET_ENDPOINT='wss://atlas-mainnet.helius-rpc.com/?api-key='
 export const JUP_AGGREGATOR=process.env.JUP_AGGREGATOR;
