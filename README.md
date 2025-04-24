@@ -82,12 +82,6 @@ Below are a few **example transactions** demonstrating the bot in action.
 
 ---
 
-## **📝 License**
-
-This project is licensed under the **MIT License**. For more details, refer to the [LICENSE](LICENSE) file.
-
----
-
 ## **💡 Conclusion**  
 
 The **Copy Trading Bot** provides Solana traders with a simple, automated solution to mirror the trading strategies of experienced traders. With full DEX integration, real-time execution, and customizable strategies, this bot offers an optimal trading experience for both newcomers and seasoned traders. While the current performance meets general needs, further optimizations are recommended for high-frequency trading scenarios.
